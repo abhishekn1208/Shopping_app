@@ -1,5 +1,8 @@
 # Shopping Cart and Purchase Flow with User Authentication and Server Integration.
 
+![image](https://github.com/user-attachments/assets/5355380d-6ebc-4e4b-a56f-528778c19b60)
+
+
 This project is a fully functional shopping cart and purchase flow system built using React, Vite, Redux, useEffect, and Axios. It includes user authentication, product listing, product details page, shopping cart management, purchase functionality, and server integration via webhooks.
 
 Features
