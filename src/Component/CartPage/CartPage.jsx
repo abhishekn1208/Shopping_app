@@ -7,6 +7,7 @@ import { Navigate } from 'react-router-dom'
 
 const CartPage = () => {
     const cart = useSelector((state)=>state.cart.items)
+    const username = useSelector((state)=>state.cart.username)
     const dispatch = useDispatch()
      const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState("")
@@ -28,6 +29,7 @@ const CartPage = () => {
         const token = localStorage.getItem('token')
         if(!token) return <Navigate to="/login"/>
        const checkoutData = {
+        username : username,
             items : cart,
         totalPrice : totalPrice
         }

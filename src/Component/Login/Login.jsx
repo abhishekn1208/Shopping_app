@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { userInfo } from '../../Redux/Action'
 
 const Login = () => {
     const userRef = useRef(null)
@@ -8,6 +10,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState("")
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleSubmit=async(e)=>{
       try {
@@ -20,8 +23,12 @@ const Login = () => {
 
         setIsLoading(true)
         const response = await axios.post('https://reqres.in/api/login',user)
+        
+ 
         if(response.status===200){
             localStorage.setItem("token",response.data.token)
+            let username = JSON.parse(response.config.data).username
+             dispatch(userInfo(username))
             alert("Login Successfully, navigate to home page")
             navigate("/")
         }

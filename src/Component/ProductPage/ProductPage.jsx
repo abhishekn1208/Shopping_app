@@ -36,7 +36,7 @@ const ProductPage = () => {
 
     useEffect(()=>{
         fetchProductData()
-    },[])
+    },[],[dispatch],[isLoading])
 
     if(isLoading){
         return <h1 className="text-center text-xl">Loading...</h1>

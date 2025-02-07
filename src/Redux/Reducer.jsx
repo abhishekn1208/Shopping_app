@@ -1,7 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY } from "./Action"
+import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY, USER_INFO } from "./Action"
 
 const initState={
-    items : []
+    items : [],
+    username : ""
 }
 
 export const cartReducer=(state = initState,{type,payload})=>{
@@ -26,6 +27,11 @@ export const cartReducer=(state = initState,{type,payload})=>{
                 items : state.items.map((item)=>
                 item.id===payload.productId ? {...item,quantity : payload.quantity} : item)
             }
+        case USER_INFO : 
+        return{
+            ...state,
+           username : payload
+        }
             default:
             return state;
     }
