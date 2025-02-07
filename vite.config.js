@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: '/index.html' // This tells Vite to treat index.html as the entry point
+      input: 'index.html' // This tells Vite to treat index.html as the entry point
     } // Specify output directory (Vercel expects this by default)
   },
 })
